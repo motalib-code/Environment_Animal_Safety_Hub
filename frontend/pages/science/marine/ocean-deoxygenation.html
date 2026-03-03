@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocean Deoxygenation - Level 3 Crisis - EcoLife</title>
+    <link rel="stylesheet" href="../../../css/global/variables.css">
+    <link rel="stylesheet" href="../../../css/global/utilities.css">
+    <link rel="stylesheet" href="../../../css/components/navbar.css">
+    <link rel="stylesheet" href="../../../css/components/footer.css">
+    <link rel="stylesheet" href="../../../css/pages/ocean-deoxygenation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.css">
+</head>
+<body>
+    <!-- Level 3 Severity Badge -->
+    <div class="severity-badge">
+        <i class="fas fa-biohazard"></i>
+        LEVEL 3 CRISIS
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-leaf"></i>
+                <span>EcoLife</span>
+            </div>
+            <div class="nav-menu">
+                <a href="../../../index.html" class="nav-link">Home</a>
+                <a href="marine-crisis.html" class="nav-link">Marine Issues</a>
+                <a href="ocean-deoxygenation.html" class="nav-link active">Dead Zones</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="murky-header">
+        <div class="bubbles">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+        </div>
+        <div class="container">
+            <h1><i class="fas fa-skull-crossbones"></i> Ocean Deoxygenation & Dead Zones</h1>
+            <p>Our oceans are suffocating. Warming waters and nutrient pollution are stripping oxygen from the seas, creating vast "dead zones" where life cannot exist.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Navigation Tabs -->
+        <nav class="crisis-nav">
+            <div class="nav-tabs">
+                <button class="nav-tab active" data-section="overview">
+                    <i class="fas fa-info-circle"></i> Crisis Overview
+                </button>
+                <button class="nav-tab" data-section="simulator">
+                    <i class="fas fa-flask"></i> Hypoxia Simulator
+                </button>
+                <button class="nav-tab" data-section="impact">
+                    <i class="fas fa-fish"></i> Marine Impact
+                </button>
+                <button class="nav-tab" data-section="solutions">
+                    <i class="fas fa-hand-holding-heart"></i> Solutions
+                </button>
+            </div>
+        </nav>
+
+        <!-- Overview Section -->
+        <section class="content-section active" id="overview">
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <h3><i class="fas fa-temperature-hot"></i> The Mechanism</h3>
+                    <p><strong>1. Warming:</strong> Warm water holds less oxygen than cold water. <br><strong>2. Stratification:</strong> Warm surface water doesn't mix with deep water, blocking oxygen resupply.</p>
+                </div>
+
+                <div class="impact-card">
+                    <h3><i class="fas fa-seedling"></i> Nutrient Pollution</h3>
+                    <p>Fertilizer runoff (Nitrogen/Phosphorus) triggers massive algal blooms. When algae die and sink, bacteria decompose them, consuming all available oxygen.</p>
+                </div>
+
+                <div class="impact-card">
+                    <h3><i class="fas fa-globe-americas"></i> Global Scale</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li class="stat-item"><i class="fas fa-arrow-down"></i> <strong>2% Loss:</strong> Global ocean oxygen since 1960.</li>
+                        <li class="stat-item"><i class="fas fa-map-marker-alt"></i> <strong>500+</strong> Dead Zones identified worldwide.</li>
+                        <li class="stat-item"><i class="fas fa-skull"></i> <strong>4x</strong> Expansion of dead zones since 1950.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Simulator Section -->
+        <section class="content-section" id="simulator">
+            <div class="simulation-panel">
+                <h2><i class="fas fa-desktop"></i> Dead Zone Simulator</h2>
+                <p>Adjust nutrient runoff and water temperature to see the effect on dissolved oxygen and marine life.</p>
+
+                <div class="simulator-layout">
+                    <div class="controls">
+                        <label for="nutrientSlider">Nutrient Runoff (Fertilizer)</label>
+                        <input type="range" id="nutrientSlider" min="0" max="100" value="20">
+                        <div class="slider-values">
+                            <span>Low</span>
+                            <span id="nutrientVal">Normal</span>
+                            <span>Critical</span>
+                        </div>
+
+                        <label for="tempSlider">Water Temperature Rise (°C)</label>
+                        <input type="range" id="tempSlider" min="0" max="4" step="0.1" value="0.5">
+                        <div class="slider-values">
+                            <span>+0°C</span>
+                            <span id="currentTemp">+0.5°C</span>
+                            <span>+4°C</span>
+                        </div>
+                    </div>
+
+                    <div class="visualization">
+                        <div class="ocean-tank" id="oceanTank">
+                            <div class="algae-layer" id="algaeLayer"></div>
+                            <div class="fish-container" id="fishContainer">
+                                <div class="fish">🐟</div>
+                                <div class="fish">🐠</div>
+                                <div class="fish">🐡</div>
+                            </div>
+                        </div>
+                        <div class="data-readout">
+                            <div class="readout-item">
+                                <span class="label">Algal Bloom</span>
+                                <span class="value" id="algaeVal">Low</span>
+                            </div>
+                            <div class="readout-item">
+                                <span class="label">Oxygen (mg/L)</span>
+                                <span class="value" id="oxygenVal">8.0</span>
+                            </div>
+                            <div class="readout-item">
+                                <span class="label">Zone Status</span>
+                                <span class="value safe" id="statusVal">Healthy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sim-message" id="simMessage">
+                    Ecosystem is healthy. Marine life thriving.
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Section -->
+        <section class="content-section" id="impact">
+            <h2><i class="fas fa-anchor"></i> The Oxygen Squeeze</h2>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <h3><i class="fas fa-fish"></i> Fisheries Collapse</h3>
+                    <p>Commercial species like Tuna and Marlin are forced to the surface to breathe, making them vulnerable to overfishing. Immobile species like crabs simply suffocate.</p>
+                </div>
+                <div class="impact-card">
+                    <h3><i class="fas fa-cloud-showers-heavy"></i> Climate Feedback</h3>
+                    <p>Low-oxygen waters produce <strong>Nitrous Oxide (N₂O)</strong>, a greenhouse gas 300x more potent than CO₂, further accelerating warming.</p>
+                </div>
+                <div class="impact-card">
+                    <h3><i class="fas fa-bacteria"></i> Microbial Shift</h3>
+                    <p>Healthy ecosystems are replaced by anaerobic bacteria that produce toxic hydrogen sulfide, poisoning the water column.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions Section -->
+        <section class="content-section" id="solutions">
+            <h2><i class="fas fa-check-circle"></i> Restoring the Breath of the Ocean</h2>
+            <div class="solutions-container">
+                <div class="solution-box agriculture">
+                    <h3>1. Sustainable Agriculture</h3>
+                    <p>Reduce fertilizer use by 50% through precision farming and cover crops to stop nutrient runoff.</p>
+                </div>
+                <div class="solution-box wetland">
+                    <h3>2. Wetland Restoration</h3>
+                    <p>Restore mangroves and marshes. They act as "Nature's Kidneys," filtering pollutants before they reach the ocean.</p>
+                </div>
+                <div class="solution-box sewage">
+                    <h3>3. Wastewater Treatment</h3>
+                    <p>Upgrade treatment plants to remove nitrogen and phosphorus from human sewage.</p>
+                </div>
+                <div class="solution-box action">
+                    <h3>4. Join the Movement</h3>
+                    <button class="action-btn" onclick="takeAction()">Support Ocean Health</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>EcoLife Marine Watch</h3>
+                <p>Monitoring the pulse of our blue planet.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../js/pages/ocean-deoxygenation.js"></script>
+</body>
+</html>

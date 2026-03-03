@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polar Albedo Loss - Level 3 Crisis - EcoLife</title>
+    <link rel="stylesheet" href="../../../css/global/variables.css">
+    <link rel="stylesheet" href="../../../css/global/utilities.css">
+    <link rel="stylesheet" href="../../../css/components/navbar.css">
+    <link rel="stylesheet" href="../../../css/components/footer.css">
+    <link rel="stylesheet" href="../../../css/pages/polar-albedo-loss.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.css">
+</head>
+<body>
+    <!-- Level 3 Severity Badge -->
+    <div class="severity-badge">
+        <i class="fas fa-exclamation-triangle"></i>
+        LEVEL 3 CRISIS
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-leaf"></i>
+                <span>EcoLife</span>
+            </div>
+            <div class="nav-menu">
+                <a href="../../../index.html" class="nav-link">Home</a>
+                <a href="climate-challenges.html" class="nav-link">Climate Issues</a>
+                <a href="polar-albedo-loss.html" class="nav-link active">Albedo Crisis</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="ice-header">
+        <div class="ice-particles">
+            <div class="ice-particle"></div>
+            <div class="ice-particle"></div>
+            <div class="ice-particle"></div>
+            <div class="ice-particle"></div>
+            <div class="ice-particle"></div>
+        </div>
+        <div class="container">
+            <h1><i class="fas fa-snowflake"></i> Polar Albedo Loss & Feedback Loops</h1>
+            <p>The Arctic is warming 4x faster than the rest of the planet. As reflective ice melts, dark ocean absorbs more heat, accelerating the crisis.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Navigation Tabs -->
+        <nav class="crisis-nav">
+            <div class="nav-tabs">
+                <button class="nav-tab active" data-section="overview">
+                    <i class="fas fa-globe-americas"></i> Crisis Overview
+                </button>
+                <button class="nav-tab" data-section="simulator">
+                    <i class="fas fa-sliders-h"></i> Feedback Simulator
+                </button>
+                <button class="nav-tab" data-section="wildlife">
+                    <i class="fas fa-paw"></i> Wildlife Impact
+                </button>
+                <button class="nav-tab" data-section="mitigation">
+                    <i class="fas fa-hand-holding-water"></i> Mitigation
+                </button>
+            </div>
+        </nav>
+
+        <!-- Overview Section -->
+        <section class="content-section active" id="overview">
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <h3><i class="fas fa-sun"></i> The Albedo Effect</h3>
+                    <p>Albedo is the measure of reflectivity. Bright white sea ice reflects ~80% of sunlight back into space, keeping the polar regions cool.</p>
+                    <div class="visual-comparison">
+                        <div class="visual-box ice">
+                            <span>High Albedo (Ice)</span>
+                            <span>Reflects 80%</span>
+                        </div>
+                        <div class="visual-box ocean">
+                            <span>Low Albedo (Ocean)</span>
+                            <span>Reflects 10%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="impact-card">
+                    <h3><i class="fas fa-sync-alt"></i> The Feedback Loop</h3>
+                    <p>As temperatures rise, ice melts. Less ice means more dark ocean exposed. Dark ocean absorbs more heat, causing MORE ice to melt. This is a self-reinforcing cycle.</p>
+                    <div class="loop-visual">
+                        <div class="loop-step">1. Warming</div>
+                        <div class="loop-arrow">⬇️</div>
+                        <div class="loop-step">2. Ice Melt</div>
+                        <div class="loop-arrow">⬇️</div>
+                        <div class="loop-step">3. Lower Albedo</div>
+                        <div class="loop-arrow">⬇️</div>
+                        <div class="loop-step">4. More Heat Absorbed</div>
+                    </div>
+                </div>
+
+                <div class="impact-card">
+                    <h3><i class="fas fa-chart-line"></i> Global Consequences</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li class="stat-item"><i class="fas fa-temperature-high"></i> <strong>Jet Stream Disruption:</strong> Extreme weather events in mid-latitudes.</li>
+                        <li class="stat-item"><i class="fas fa-water"></i> <strong>Sea Level Rise:</strong> Accelerating loss of Greenland ice sheet.</li>
+                        <li class="stat-item"><i class="fas fa-fire"></i> <strong>Permafrost Thaw:</strong> Release of methane bombs.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Simulator Section -->
+        <section class="content-section" id="simulator">
+            <div class="simulation-panel">
+                <h2><i class="fas fa-desktop"></i> Albedo Feedback Simulator</h2>
+                <p>Adjust global temperature to see the impact on sea ice extent and heat absorption.</p>
+
+                <div class="simulator-layout">
+                    <div class="controls">
+                        <label for="tempSlider">Global Temperature Rise (°C)</label>
+                        <input type="range" id="tempSlider" min="0" max="4" step="0.1" value="1.1">
+                        <div class="slider-values">
+                            <span>+0°C</span>
+                            <span id="currentTemp">+1.1°C</span>
+                            <span>+4°C</span>
+                        </div>
+                    </div>
+
+                    <div class="visualization">
+                        <div class="arctic-map" id="arcticMap">
+                            <div class="ice-layer" id="iceLayer"></div>
+                        </div>
+                        <div class="data-readout">
+                            <div class="readout-item">
+                                <span class="label">Ice Extent</span>
+                                <span class="value" id="iceExtentVal">4.5M km²</span>
+                            </div>
+                            <div class="readout-item">
+                                <span class="label">Albedo</span>
+                                <span class="value" id="albedoVal">0.65</span>
+                            </div>
+                            <div class="readout-item">
+                                <span class="label">Heat Absorption</span>
+                                <span class="value warning" id="heatVal">+20%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sim-message" id="simMessage">
+                    Current trajectory: Significant loss of summer sea ice.
+                </div>
+            </div>
+        </section>
+
+        <!-- Wildlife Section -->
+        <section class="content-section" id="wildlife">
+            <h2><i class="fas fa-paw"></i> Species on Thin Ice</h2>
+            <div class="species-grid">
+                <div class="species-card">
+                    <div class="species-icon">🐻‍❄️</div>
+                    <h3>Polar Bears</h3>
+                    <p>Rely on sea ice to hunt seals. Longer ice-free summers mean starvation and reproductive failure.</p>
+                    <div class="status-bar"><div class="bar-fill" style="width: 30%;"></div></div>
+                    <span class="status-text">Vulnerable</span>
+                </div>
+                <div class="species-card">
+                    <div class="species-icon">🦭</div>
+                    <h3>Walruses</h3>
+                    <p>Use ice as a diving platform for foraging. Forced onto crowded beaches causing deadly stampedes.</p>
+                    <div class="status-bar"><div class="bar-fill" style="width: 45%;"></div></div>
+                    <span class="status-text">Threatened</span>
+                </div>
+                <div class="species-card">
+                    <div class="species-icon">🦐</div>
+                    <h3>Antarctic Krill</h3>
+                    <p>Larvae feed on algae under sea ice. Loss of ice threatens the base of the entire Southern Ocean food web.</p>
+                    <div class="status-bar"><div class="bar-fill" style="width: 60%;"></div></div>
+                    <span class="status-text">Declining</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mitigation Section -->
+        <section class="content-section" id="mitigation">
+            <h2><i class="fas fa-shield-alt"></i> Saving the Ice</h2>
+            <div class="solutions-container">
+                <div class="solution-box emission">
+                    <h3>1. Rapid Emission Reduction</h3>
+                    <p>The only permanent solution. We must limit warming to 1.5°C to save summer sea ice.</p>
+                    <ul>
+                        <li>Phase out fossil fuels</li>
+                        <li>Protect carbon sinks</li>
+                    </ul>
+                </div>
+                <div class="solution-box geo">
+                    <h3>2. Geoengineering Research</h3>
+                    <p>Controversial but potentially necessary emergency measures.</p>
+                    <ul>
+                        <li><strong>Marine Cloud Brightening:</strong> Spraying sea salt to make clouds more reflective.</li>
+                        <li><strong>Ice Thickening:</strong> Pumping water onto ice in winter to freeze thicker.</li>
+                    </ul>
+                </div>
+                <div class="solution-box action">
+                    <h3>3. Your Role</h3>
+                    <p>Individual actions matter in the aggregate.</p>
+                    <button class="action-btn" onclick="takeAction()">Join the Fight</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>EcoLife Crisis Monitor</h3>
+                <p>Tracking Earth's vital signs.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="../../../js/pages/polar-albedo-loss.js"></script>
+</body>
+</html>

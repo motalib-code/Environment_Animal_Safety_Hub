@@ -133,6 +133,64 @@
     </div>
   </div>
 
+  <!-- Ocean Deoxygenation Crisis Alert -->
+  <div class="crisis-alert-banner" id="oceanCrisisAlert" style="display: none; background: linear-gradient(135deg, #001219, #0a9396); border-left: 5px solid #94d2bd;">
+    <div class="crisis-alert-content">
+      <div class="crisis-icon">
+        <i class="fas fa-biohazard" style="color: #94d2bd;"></i>
+      </div>
+      <div class="crisis-text">
+        <span class="crisis-level" style="background: #ae2012; color: white;">
+          🌊 LEVEL 3 CRISIS
+        </span>
+        <span class="crisis-title" style="color: white;">
+          Ocean Deoxygenation & Expanding Dead Zones
+        </span>
+        <span class="crisis-action" style="color: #e9d8a6;">
+          Marine life suffocation spreading globally - Immediate runoff reduction needed
+        </span>
+      </div>
+      <div class="crisis-actions">
+        <a class="crisis-btn" href="pages/science/marine/ocean-deoxygenation.html" style="background: #94d2bd; color: #001219;">
+          <i class="fas fa-skull-crossbones"></i>
+          View Crisis Details
+        </a>
+        <button aria-label="Close crisis alert" class="crisis-close" onclick="document.getElementById('oceanCrisisAlert').style.display='none'" style="color: white;">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Polar Albedo Loss Crisis Alert -->
+  <div class="crisis-alert-banner" id="albedoCrisisAlert" style="display: none; background: linear-gradient(135deg, #001f3f, #0074d9); border-left: 5px solid #7FDBFF;">
+    <div class="crisis-alert-content">
+      <div class="crisis-icon">
+        <i class="fas fa-snowflake" style="color: #7FDBFF;"></i>
+      </div>
+      <div class="crisis-text">
+        <span class="crisis-level" style="background: #ff4136; color: white;">
+          ❄️ LEVEL 3 CRISIS
+        </span>
+        <span class="crisis-title" style="color: white;">
+          Polar Albedo Loss Accelerating Global Warming
+        </span>
+        <span class="crisis-action" style="color: #dbeafe;">
+          Feedback loops threatening irreversible ice collapse - Immediate action needed
+        </span>
+      </div>
+      <div class="crisis-actions">
+        <a class="crisis-btn" href="pages/science/climate/polar-albedo-loss.html" style="background: #7FDBFF; color: #001f3f;">
+          <i class="fas fa-globe-americas"></i>
+          View Crisis Details
+        </a>
+        <button aria-label="Close crisis alert" class="crisis-close" onclick="document.getElementById('albedoCrisisAlert').style.display='none'" style="color: white;">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Indigenous Knowledge Loss Crisis Alert -->
   <div class="indigenous-crisis-alert-banner" id="indigenous-crisis-alert-banner" style="display: none;">
     <div class="indigenous-crisis-alert-content">
@@ -2041,7 +2099,7 @@
               </span>
             </div>
           </div>
-          <a class="explore-btn" href="../js/visual-museum.html">
+          <a class="explore-btn" href="pages/education/visual-museum.html">
             🏛️ Visit Museum
             <i class="fas fa-arrow-right">
             </i>
